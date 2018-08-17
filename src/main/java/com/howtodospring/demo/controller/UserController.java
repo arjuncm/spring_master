@@ -21,7 +21,7 @@ public class UserController {
 	private UserService userService;
 	@GetMapping("/")
 	public String homeInit(Locale locale, Model model) {
-		 model.addAttribute("users", userService.listUser());
+		 model.addAttribute("users", new User());
 		return "index";
 	}
 	@ModelAttribute("user")

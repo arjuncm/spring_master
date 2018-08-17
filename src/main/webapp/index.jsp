@@ -23,9 +23,9 @@
         </style>
     </head>
     <body>
-        <h1>Input Form</h1>
-        <form:form action="addUser" method="post" modelAttribute="user">
-           <%--  <table>
+       <h1>Input Form</h1>
+        <form:form action="/" method="post" modelAttribute="user">
+            <table>
                 <tr>
                     <td>Name</td>
                     <td>
@@ -43,11 +43,11 @@
                 <tr>
                     <td colspan="2"><button type="submit">Submit</button></td>
                 </tr>
-            </table> --%>
+            </table> 
         </form:form>
          
-        <h2>Users List</h2>
-<%--         <table>
+        <h2>List</h2>
+        <table>
             <tr>
                 <td><strong>Name</strong></td>
                 <td><strong>Email</strong></td>
@@ -58,6 +58,6 @@
                     <td>${user.email}</td>
                 </tr>
             </c:forEach>
-        </table> --%>
+        </table>
     </body>
 </html>
