@@ -1,3 +1,6 @@
 # Ignore following files #
 ###################
-
+*.classpath
+*.project
+*.settings/
+/target/**
