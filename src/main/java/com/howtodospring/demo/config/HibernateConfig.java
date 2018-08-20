@@ -9,6 +9,8 @@ import org.hsqldb.TransactionManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -28,6 +30,7 @@ for registering the necessary Spring components that power annotation-driven tra
 
 @Configuration
 @EnableTransactionManagement
+@ComponentScans(value = { @ComponentScan("com.howtodospring.demo")})
 public class HibernateConfig {
 	@Autowired
 	private ApplicationContext context;
@@ -41,7 +44,7 @@ public class HibernateConfig {
 		return sessionFactory;
 		
 	}
-	
+	@Bean
 	public HibernateTransactionManager transactionManager() {
 		HibernateTransactionManager trManager  = new HibernateTransactionManager();
 		trManager.setSessionFactory(sessionFactory().getObject());

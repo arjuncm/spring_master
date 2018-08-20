@@ -2,6 +2,8 @@ package com.howtodospring.demo.dao;
 
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,11 +15,12 @@ public class UserDaoImpl implements UserDao{
 	@Autowired
 	private SessionFactory sfactory;
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> listUser() {
-		
-		return (List<User>) sfactory.getCurrentSession().get(User.class,new Integer(1) );
+		@SuppressWarnings("unchecked")
+		TypedQuery<User> query = sfactory.getCurrentSession().createQuery("from User");
+		System.out.println("*******************************"+query.getResultList().get(0).getName());
+	      return query.getResultList();
 	}
 
 	@Override

@@ -15,30 +15,36 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.howtodospring.demo.model.User;
 import com.howtodospring.demo.service.UserService;
 
+
+
 @Controller
 public class UserController {
+
 	@Autowired
 	private UserService userService;
+
 	@GetMapping("/")
-	public String homeInit(Locale locale, Model model) {
-		 model.addAttribute("users", new User());
-		return "index";
+	public String userForm(Locale locale, Model model) {
+		System.out.println("#########################"+userService.listUser());
+		model.addAttribute("users", userService.listUser());
+		return "main";
 	}
+	
 	@ModelAttribute("user")
     public User formBackingObject() {
         return new User();
     }
-	
+
 	@PostMapping("/addUser")
-    public String saveUser(@ModelAttribute("user") @Valid User user,
-                            BindingResult result, Model model) {
- 
-        if (result.hasErrors()) {
-            model.addAttribute("users", userService.listUser());
-            return "editUsers";
-        }
- 
-        userService.save(user);
-        return "redirect:/";
-    }
+	public String saveUser(@ModelAttribute("user") @Valid User user, BindingResult result, Model model) {
+
+		if (result.hasErrors()) {
+			
+			model.addAttribute("users", userService.listUser());
+			return "main";
+		}
+
+		userService.save(user);
+		return "redirect:/";
+	}
 }

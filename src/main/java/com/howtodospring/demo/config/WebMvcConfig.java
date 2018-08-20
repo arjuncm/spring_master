@@ -43,8 +43,7 @@ public class WebMvcConfig implements WebMvcConfigurer{
 		return messageSource;
 		
 	}
-	@Bean
-	public Validator validator() {
+	 public Validator validator() {
 		LocalValidatorFactoryBean validator  = new  LocalValidatorFactoryBean();
 		validator.setValidationMessageSource(messageSource());
 		return validator;
