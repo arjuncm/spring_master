@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao{
 	public List<User> listUser() {
 		@SuppressWarnings("unchecked")
 		TypedQuery<User> query = sfactory.getCurrentSession().createQuery("from User");
-		System.out.println("*******************************"+query.getResultList().get(0).getName());
+		
 	      return query.getResultList();
 	}
 
