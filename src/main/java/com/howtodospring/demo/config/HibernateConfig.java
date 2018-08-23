@@ -58,6 +58,7 @@ public class HibernateConfig {
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean  sessionFactory  = new LocalSessionFactoryBean();
 		sessionFactory.setDataSource(getDataSource());
+		
 		Properties props=new Properties();
 	   // props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
 	    props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));

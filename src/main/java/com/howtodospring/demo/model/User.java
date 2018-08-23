@@ -30,6 +30,9 @@ public class User {
 	   @Email(message = "{user.email.invalid}")
 	   @NotEmpty(message="Please Enter your email")
 	   private String email;
+	   
+	   @Column(name = "USER_STATUS")
+	   private String status;
 
 	/**
 	 * @return the id
@@ -74,6 +77,14 @@ public class User {
 	 */
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	/*
