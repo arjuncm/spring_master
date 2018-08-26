@@ -22,7 +22,7 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.howtodospring.demo.model.User;
+import com.howtodospring.demo.model.Account;
 
 /**
  * @author arjun
@@ -64,7 +64,7 @@ public class HibernateConfig {
 	    props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 	    sessionFactory.setHibernateProperties(props);
 		//TODo create two pojo classes 
-		sessionFactory.setAnnotatedClasses(User.class);
+		sessionFactory.setAnnotatedClasses(Account.class);
 		//sessionFactory.setAnnotatedClasses("Questions");
 		return sessionFactory;
 		

@@ -2,14 +2,14 @@ package com.howtodospring.demo.dao;
 
 import java.util.List;
 
-import com.howtodospring.demo.model.User;
+import com.howtodospring.demo.model.Account;
 
 
 public interface UserDao {
-	public void save(User user);
-	public List<User> listUser() ;
+	public void save(Account account);
+	public List<Account> listUser() ;
 	public void remove(Long id);
-	public List<User> removeUserList() ;
+	public List<Account> removeUserList() ;
 	
 	
 

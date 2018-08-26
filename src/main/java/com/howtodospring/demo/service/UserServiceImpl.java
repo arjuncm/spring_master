@@ -13,19 +13,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.howtodospring.demo.dao.UserDao;
-import com.howtodospring.demo.model.User;
+import com.howtodospring.demo.model.Account;
 
 @Service
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;	
 	@Transactional
-	public void save(User user) {
-		userDao.save(user);
+	public void save(Account account) {
+		userDao.save(account);
 		
 	}	
 	@Transactional(readOnly = true)
-	public List<User> listUser() {
+	public List<Account> listUser() {
 		return userDao.listUser();
 		
 	}
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
 		
 	}
 	@Override
-	public List<User> removeUserList() {
+	public List<Account> removeUserList() {
 		// TODO Auto-generated method stub
 		return userDao.removeUserList();
 	}
